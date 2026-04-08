@@ -37,40 +37,30 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
-## 📧 邮箱配置
+## 📧 邮箱配置（模板）
 
-- **QQ 邮箱**: `2036673339@qq.com`
-- **IMAP/SMTP 已配置**（SMTP 发件正常，IMAP 收件需网络支持）
-- **配置文件**: `C:\Users\ouyan\.qclaw\.env`
-- **skill 目录**: `C:\Users\ouyan\.qclaw\email-skill`
-- **发件测试**: `node C:\Users\ouyan\.qclaw\email-skill\smtp-test.js`
-- **收件命令**: `node C:\Users\ouyan\.qclaw\email-skill\imap.js check --limit 10`
+```markdown
+### Email
+- **Provider**: QQ Mail / Gmail / Outlook
+- **IMAP**: imap.example.com:993
+- **SMTP**: smtp.example.com:587
+- **Config**: ${ENV_FILE_PATH}
+```
 
-## ⚠️ 已知问题
+## 🛠️ CLI 工具参考
 
-- IMAP 连接（imap.qq.com:993）有时超时，可能是网络封锁
+常用工具及安装方式：
 
-## 🛠️ 已安装 CLI 工具
-
-| 工具 | 版本 | 来源 | 路径 |
-|------|------|------|------|
-| jq | 1.8.1 | winget | WinGet\jqlang.jq |
-| ripgrep | 15.1.0 | winget | WinGet\ripgrep |
-| ffmpeg | 8.1 | winget | WinGet\Gyan.FFmpeg |
-| gh | 2.88.1 | winget | C:\Program Files\GitHub CLI |
-| uv | 0.11.1 | npm | C:\Users\ouyan\.local\bin |
-| mcporter | ✅ | npm | npm global |
-| oracle | ✅ | npm | npm global |
-| clawhub | ✅ | npm | npm global |
-| obsidian-cli | ✅ | npm | npm global |
-| whisper | ✅ | pip | Python312 |
-| himalaya | v1.2.0 | GitHub | C:\Users\ouyan\AppData\Local\Programs\Himalaya |
-| sag | 0.2.2 | GitHub | C:\Users\ouyan\AppData\Local\Programs\sag |
-
-**PATH 已更新到用户环境变量，包含：**
-- C:\Users\ouyan\AppData\Local\Programs\Himalaya
-- C:\Users\ouyan\AppData\Local\Programs\sag
-- C:\Users\ouyan\AppData\Local\Programs\Python\Python312\Scripts
-- C:\Users\ouyan\.local\bin
+| 工具 | 用途 | 安装方式 |
+|------|------|----------|
+| jq | JSON 处理 | winget / brew |
+| ripgrep | 快速搜索 | winget / brew |
+| ffmpeg | 音视频处理 | winget / brew |
+| gh | GitHub CLI | winget / brew |
+| uv | Python 包管理 | npm |
+| skillhub | Skill 管理 | npm |
+| clawhub | Skill 发布 | npm |
+| himalaya | 终端邮件 | GitHub Release |
+| whisper | 语音转文字 | pip |
 
 Add whatever helps you do your job. This is your cheat sheet.
