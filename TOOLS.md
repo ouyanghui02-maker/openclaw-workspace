@@ -1,90 +1,76 @@
-# TOOLS.md - 本地工具配置说明
+# TOOLS.md - Local Notes
 
-> ⚙️ 配置模板 — 所有敏感值（路径/账号/密钥）请替换为实际内容或环境变量引用
+Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+
+## What Goes Here
+
+Things like:
+
+- Camera names and locations
+- SSH hosts and aliases
+- Preferred voices for TTS
+- Speaker/room names
+- Device nicknames
+- Anything environment-specific
+
+## Examples
+
+```markdown
+### Cameras
+
+- living-room → Main area, 180° wide angle
+- front-door → Entrance, motion-triggered
+
+### SSH
+
+- home-server → 192.168.1.100, user: admin
+
+### TTS
+
+- Preferred voice: "Nova" (warm, slightly British)
+- Default speaker: Kitchen HomePod
+```
+
+## Why Separate?
+
+Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 
 ---
 
 ## 📧 邮箱配置
 
-> ⚙️ 配置项：替换为自己的邮箱账号和配置路径
+- **QQ 邮箱**: `2036673339@qq.com`
+- **IMAP/SMTP 已配置**（SMTP 发件正常，IMAP 收件需网络支持）
+- **配置文件**: `C:\Users\ouyan\.qclaw\.env`
+- **skill 目录**: `C:\Users\ouyan\.qclaw\email-skill`
+- **发件测试**: `node C:\Users\ouyan\.qclaw\email-skill\smtp-test.js`
+- **收件命令**: `node C:\Users\ouyan\.qclaw\email-skill\imap.js check --limit 10`
 
-```markdown
-- **邮箱**: YOUR_EMAIL@example.com
-- **IMAP/SMTP**: 已在配置文件中设置
-- **配置文件**: ${WORKSPACE}/.env
-- **skill 目录**: ${WORKSPACE}/email-skill
-```
+## ⚠️ 已知问题
 
-### 配置步骤
+- IMAP 连接（imap.qq.com:993）有时超时，可能是网络封锁
 
-1. **SMTP 发件**
-   ```bash
-   node ${WORKSPACE}/email-skill/smtp-test.js
-   ```
+## 🛠️ 已安装 CLI 工具
 
-2. **IMAP 收件**
-   ```bash
-   node ${WORKSPACE}/email-skill/imap.js check --limit 10
-   ```
-
-> ⚠️ IMAP 连接有时超时（检查网络或 SMTP-only 模式降级）
-
----
-
-## 🛠️ CLI 工具清单
-
-> ⚙️ 配置项：按实际安装的工具和路径填写
-
-| 工具 | 用途 | 来源 | 备注 |
+| 工具 | 版本 | 来源 | 路径 |
 |------|------|------|------|
-| jq | JSON 处理 | winget / brew | — |
-| ripgrep | 文本搜索 | winget / brew | — |
-| ffmpeg | 音视频处理 | winget | — |
-| gh | GitHub CLI | winget | 需 `gh auth login` |
-| uv | Python 包管理 | npm | — |
-| mcporter | MCP 工具调用 | npm global | — |
-| clawhub | SkillHub 管理 | npm global | — |
-| whisper | 语音转文字 | pip | Python312 |
-| himalaya | 邮箱管理 | GitHub | — |
-| sag | 语音合成（TTS） | GitHub | — |
+| jq | 1.8.1 | winget | WinGet\jqlang.jq |
+| ripgrep | 15.1.0 | winget | WinGet\ripgrep |
+| ffmpeg | 8.1 | winget | WinGet\Gyan.FFmpeg |
+| gh | 2.88.1 | winget | C:\Program Files\GitHub CLI |
+| uv | 0.11.1 | npm | C:\Users\ouyan\.local\bin |
+| mcporter | ✅ | npm | npm global |
+| oracle | ✅ | npm | npm global |
+| clawhub | ✅ | npm | npm global |
+| obsidian-cli | ✅ | npm | npm global |
+| whisper | ✅ | pip | Python312 |
+| himalaya | v1.2.0 | GitHub | C:\Users\ouyan\AppData\Local\Programs\Himalaya |
+| sag | 0.2.2 | GitHub | C:\Users\ouyan\AppData\Local\Programs\sag |
 
-### PATH 配置
+**PATH 已更新到用户环境变量，包含：**
+- C:\Users\ouyan\AppData\Local\Programs\Himalaya
+- C:\Users\ouyan\AppData\Local\Programs\sag
+- C:\Users\ouyan\AppData\Local\Programs\Python\Python312\Scripts
+- C:\Users\ouyan\.local\bin
 
-> ⚙️ 配置项：添加以下路径到系统 PATH
-```
-${PATH_APPEND}:
-  - ${HIMALAYA_DIR}        # himalaya CLI
-  - ${SAG_DIR}             # sag TTS
-  - ${PYTHON_SCRIPTS_DIR}  # pip 安装的脚本
-  - ${LOCAL_BIN_DIR}       # npm global 脚本
-```
-
-### 验证安装
-
-```bash
-jq --version
-gh auth status
-python -m whisper --help
-```
-
----
-
-## 🔑 环境变量
-
-> ⚙️ 将以下变量写入 `${WORKSPACE}/.env`（不提交到 Git）
-
-```bash
-# 邮箱
-EMAIL_SMTP_HOST=smtp.example.com
-EMAIL_SMTP_PORT=587
-EMAIL_USER=your_email@example.com
-EMAIL_PASSWORD=your_app_password
-
-# GitHub
-GH_TOKEN=ghp_xxxxxxxxxxxx
-
-# 其他 API Keys
-FIRECRAWL_API_KEY=fc-xxxxxxxx
-```
-
-> ⚠️ **安全规则**：.env 禁止提交！已加入 .gitignore
+Add whatever helps you do your job. This is your cheat sheet.

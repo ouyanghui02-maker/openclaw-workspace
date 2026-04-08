@@ -1,21 +1,41 @@
-# Credentials & Keys
-.env
-.env.local
-*.pem
-*.key
+# System
+node_modules/
+.clawhub/
+.openclaw/
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-.venv/
-venv/
+# Temporary
+tmp/
+agent-9acdfdba/
+*.tmp
+*.temp
+*.log
 
-# OS
-.DS_Store
+# Auto-generated / caches
+memory-lancedb-*.json
+memory/hot.txt
+memory/weather-last.json
+
+# Downloaded installers (use package managers instead)
+*.zip
+*.exe
+
+# Cloned repos (use GitHub directly)
+openclaw-workspace-repo/
+
+# Skills library (install via skillhub, don't commit raw skill code)
+skills/
+pinchtab-skill/
+pinchtab-install.sh
+config/
+imap-smtp-email/
+scripts/
+xl/
+agent-9acdfdba/
+
+# Planning notes (regenerate as needed)
+网络热梗词库.md
+需要配置的Skill清单.md
+
+# OS artifacts
 Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
+.DS_Store
