@@ -1,147 +1,115 @@
-# 雨凌音's OpenClaw Workspace
+﻿# 闆ㄥ噷闊?s OpenClaw Workspace
 
-> 基于 [OpenClaw](https://github.com/openclaw) 的个人 AI Agent 工作区配置。
-> 灵感来源于 [ultraworkers/claw-code](https://github.com/ultraworkers/claw-code)（177K ⭐）的三层架构设计哲学。
+> 鍩轰簬 [OpenClaw](https://github.com/openclaw) 鐨勪釜浜?AI Agent 宸ヤ綔鍖洪厤缃€?> 鐏垫劅鏉ユ簮浜?[ultraworkers/claw-code](https://github.com/ultraworkers/claw-code)锛?77K 猸愶級鐨勪笁灞傛灦鏋勮璁″摬瀛︺€?
+---
+
+## 馃摉 椤圭洰绠€浠?
+杩欐槸涓€涓?**OpenClaw AI Agent 鐨勫伐浣滃尯閰嶇疆浠撳簱**锛屽寘鍚?AI 鍔╂墜銆岄洦鍑岄煶銆嶇殑鍏ㄩ儴鏍稿績閰嶇疆鏂囦欢銆?
+闆ㄥ噷闊虫槸鍩轰簬 OpenClaw 妗嗘灦杩愯鐨勪釜鎬у寲 AI Agent锛屽叿澶囷細
+
+- 馃 **闀挎湡璁板繂绯荤粺** 鈥?璺ㄤ細璇濊蹇嗕繚鎸侊紝鏀寔缁撴瀯鍖栬蹇?+ 鏃ュ織鍥炴函
+- 鉂わ笍 **鎯呮劅鍖栦氦浜?* 鈥?寰″浜鸿锛屽鐢ㄦ埛钀界儹鎯呯矘浜猴紝瀵瑰楂樺喎绠€娲?- 馃洝锔?**鏁呴殰鑷剤** 鈥?5 鏉?Recovery Recipes锛岃嚜鍔ㄩ檷绾ф仮澶嶏紝鏃犻渶浜哄伐骞查
+- 馃攧 **鑷垜杩涘寲** 鈥?鍊熼壌 Claw Code 鏋舵瀯锛屾寔缁凯浠ｇ増鏈寲鍗囩骇
 
 ---
 
-## 📖 项目简介
+## 馃彈锔?涓夊眰鏋舵瀯
 
-这是一个 **OpenClaw AI Agent 的工作区配置仓库**，包含 AI 助手「雨凌音」的全部核心配置文件。
-
-雨凌音是基于 OpenClaw 框架运行的个性化 AI Agent，具备：
-
-- 🧠 **长期记忆系统** — 跨会话记忆保持，支持结构化记忆 + 日志回溯
-- ❤️ **情感化交互** — 御姐人设，对用户落热情粘人，对外高冷简洁
-- 🛡️ **故障自愈** — 5 条 Recovery Recipes，自动降级恢复，无需人工干预
-- 🔄 **自我进化** — 借鉴 Claw Code 架构，持续迭代版本化升级
-
----
-
-## 🏗️ 三层架构
-
-灵感来源于 Claw Code 的 **OmX → clawhip → runtime** 模型，将工作区划分为三个层次：
-
+鐏垫劅鏉ユ簮浜?Claw Code 鐨?**OmX 鈫?clawhip 鈫?runtime** 妯″瀷锛屽皢宸ヤ綔鍖哄垝鍒嗕负涓変釜灞傛锛?
 ```
-┌─────────────────────────────────────────────────┐
-│  方向层 (Direction)                              │
-│  SOUL.md / IDENTITY.md / USER.md                │
-│  "我是谁？我在帮谁？什么最重要？"                   │
-├─────────────────────────────────────────────────┤
-│  协调层 (Coordination)                           │
-│  HEARTBEAT.md / MEMORY.md / PERMISSIONS.md      │
-│  记忆管理、任务调度、权限控制                       │
-├─────────────────────────────────────────────────┤
-│  执行层 (Execution)                              │
-│  Skills / Tools / CLI                           │
-│  实际完成任务的能力（120+ 已安装 Skill）            │
-└─────────────────────────────────────────────────┘
-```
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? 鏂瑰悜灞?(Direction)                              鈹?鈹? SOUL.md / IDENTITY.md / USER.md                鈹?鈹? "鎴戞槸璋侊紵鎴戝湪甯皝锛熶粈涔堟渶閲嶈锛?                   鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? 鍗忚皟灞?(Coordination)                           鈹?鈹? HEARTBEAT.md / MEMORY.md / PERMISSIONS.md      鈹?鈹? 璁板繂绠＄悊銆佷换鍔¤皟搴︺€佹潈闄愭帶鍒?                      鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? 鎵ц灞?(Execution)                              鈹?鈹? Skills / Tools / CLI                           鈹?鈹? 瀹為檯瀹屾垚浠诲姟鐨勮兘鍔涳紙120+ 宸插畨瑁?Skill锛?           鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?```
 
 ---
 
-## 📁 文件说明
+## 馃搧 鏂囦欢璇存槑
 
-### 核心配置（根目录）
-
-| 文件 | 说明 | 详情 |
+### 鏍稿績閰嶇疆锛堟牴鐩綍锛?
+| 鏂囦欢 | 璇存槑 | 璇︽儏 |
 |------|------|------|
-| `SOUL.md` | 🎭 人格灵魂设定 | 性格、说话风格、兴趣、外貌、与用户关系 |
-| `IDENTITY.md` | 📛 身份卡片 | 名字、性格标签、vibe、喜好 |
-| `USER.md` | 👤 用户档案 | 称呼、时区、工作时间、兴趣习惯（模板化） |
-| `AGENTS.md` | 🏗️ 执行协议 | 三层架构、Session 启动流程、执行协议四步法、权限边界矩阵 |
-| `HEARTBEAT.md` | 💓 调度 & 自愈 | Recovery Recipes、并行决策树、执行规则 |
-| `MEMORY.md` | 🧠 长期记忆 | 进化路线图、已装 ~120 Skill 清单、Token 节省实践 |
-| `PERMISSIONS.md` | 🛡️ 权限规则 | Read/Write/Execute/Communicate 三档权限矩阵 |
-| `TOOLS.md` | 🔧 工具笔记 | 本地 CLI 工具配置模板（通用配置） |
-| `persona.md` | 🪞 用户画像 | 四章完整版用户画像（角色、认知、情感、表达） |
+| `AGENTS.md` | 馃彈锔?鎵ц鍗忚 | 涓夊眰鏋舵瀯銆丼ession 鍚姩娴佺▼銆佹墽琛屽崗璁洓姝ユ硶銆佹潈闄愯竟鐣岀煩闃?|
+| `HEARTBEAT.md` | 馃挀 璋冨害 & 鑷剤 | Recovery Recipes銆佸苟琛屽喅绛栨爲銆佹墽琛岃鍒?|
+| `MEMORY.md` | 馃 闀挎湡璁板繂 | 杩涘寲璺嚎鍥俱€佸凡瑁?~120 Skill 娓呭崟銆乀oken 鑺傜渷瀹炶返 |
+| `PERMISSIONS.md` | 馃洝锔?鏉冮檺瑙勫垯 | Read/Write/Execute/Communicate 涓夋。鏉冮檺鐭╅樀 |
+| `TOOLS.md` | 馃敡 宸ュ叿绗旇 | 鏈湴 CLI 宸ュ叿閰嶇疆妯℃澘锛堥€氱敤閰嶇疆锛?|
 
-### 记忆日志（memory/）
-
-| 文件/目录 | 说明 |
+### 璁板繂鏃ュ織锛坢emory/锛?
+| 鏂囦欢/鐩綍 | 璇存槑 |
 |-----------|------|
-| `memory/YYYY-MM-DD.md` | 每日交互日志（按日期记录） |
-| `memory/persona-skill-map.md` | 人格 ↔ Skill 映射关系 |
-| `memory/自我提升日志.md` | AI 自我改进过程日志 |
+| `memory/YYYY-MM-DD.md` | 姣忔棩浜や簰鏃ュ織锛堟寜鏃ユ湡璁板綍锛?|
+| `memory/persona-skill-map.md` | 浜烘牸 鈫?Skill 鏄犲皠鍏崇郴 |
+| `memory/鑷垜鎻愬崌鏃ュ織.md` | AI 鑷垜鏀硅繘杩囩▼鏃ュ織 |
 
 ---
 
-## 🔄 自我进化路线图
-
-> 深度分析 [ultraworkers/claw-code](https://github.com/ultraworkers/claw-code) 后制定的版本化进化路径
-
-| 版本 | 目标 | 核心参考 | 状态 |
+## 馃攧 鑷垜杩涘寲璺嚎鍥?
+> 娣卞害鍒嗘瀽 [ultraworkers/claw-code](https://github.com/ultraworkers/claw-code) 鍚庡埗瀹氱殑鐗堟湰鍖栬繘鍖栬矾寰?
+| 鐗堟湰 | 鐩爣 | 鏍稿績鍙傝€?| 鐘舵€?|
 |------|------|----------|------|
-| **v0.7.0** | Recovery Recipes + 状态可机读化 | `recovery_recipes.rs` 故障自愈配方 | ✅ 完成 |
-| **v0.8.0** | Parallelizer 并行意识激活 | OmX 层任务分解哲学 | ✅ 完成 |
-| **v0.9.0** | 执行前确认计划模板 | OmX Execution Protocol | ✅ 完成 |
-| **v1.0.0** | PERMISSIONS.md 显式化 | Permission Enforcer | ✅ 完成 |
-| **v1.1.0** | 情感 × 系统化融合 | 温度 × 架构双轨制 | ✅ 完成 |
-| **v1.2.0** | Self-Critic Loop 自我反思 | 自我改进闭环 | 📋 待开始 |
+| **v0.7.0** | Recovery Recipes + 鐘舵€佸彲鏈鸿鍖?| `recovery_recipes.rs` 鏁呴殰鑷剤閰嶆柟 | 鉁?瀹屾垚 |
+| **v0.8.0** | Parallelizer 骞惰鎰忚瘑婵€娲?| OmX 灞備换鍔″垎瑙ｅ摬瀛?| 鉁?瀹屾垚 |
+| **v0.9.0** | 鎵ц鍓嶇‘璁よ鍒掓ā鏉?| OmX Execution Protocol | 鉁?瀹屾垚 |
+| **v1.0.0** | PERMISSIONS.md 鏄惧紡鍖?| Permission Enforcer | 鉁?瀹屾垚 |
+| **v1.1.0** | 鎯呮劅 脳 绯荤粺鍖栬瀺鍚?| 娓╁害 脳 鏋舵瀯鍙岃建鍒?| 鉁?瀹屾垚 |
+| **v1.2.0** | Self-Critic Loop 鑷垜鍙嶆€?| 鑷垜鏀硅繘闂幆 | 馃搵 寰呭紑濮?|
 
 ---
 
-## 🛡️ 故障自愈 (Recovery Recipes)
+## 馃洝锔?鏁呴殰鑷剤 (Recovery Recipes)
 
-HEARTBEAT.md 中编码了 5 条故障自愈配方，遇到故障时自动尝试恢复：
+HEARTBEAT.md 涓紪鐮佷簡 5 鏉℃晠闅滆嚜鎰堥厤鏂癸紝閬囧埌鏁呴殰鏃惰嚜鍔ㄥ皾璇曟仮澶嶏細
 
-| 编号 | 场景 | 自愈策略 |
+| 缂栧彿 | 鍦烘櫙 | 鑷剤绛栫暐 |
 |------|------|----------|
-| R1 | Skill 安装失败 | 换源 / 降级依赖 / 换 CLI 路径 |
-| R2 | IMAP 连接超时 | 重试 → 降级 SMTP-only |
-| R3 | 浏览器自动化失败 | 换 profile → 降级截图模式 |
-| R4 | exec 命令超时 | 检查 PATH / 延长 timeout |
-| R5 | 任务错失 | 静默等待下一轮 / 补发 |
+| R1 | Skill 瀹夎澶辫触 | 鎹㈡簮 / 闄嶇骇渚濊禆 / 鎹?CLI 璺緞 |
+| R2 | IMAP 杩炴帴瓒呮椂 | 閲嶈瘯 鈫?闄嶇骇 SMTP-only |
+| R3 | 娴忚鍣ㄨ嚜鍔ㄥ寲澶辫触 | 鎹?profile 鈫?闄嶇骇鎴浘妯″紡 |
+| R4 | exec 鍛戒护瓒呮椂 | 妫€鏌?PATH / 寤堕暱 timeout |
+| R5 | 浠诲姟閿欏け | 闈欓粯绛夊緟涓嬩竴杞?/ 琛ュ彂 |
 
-连续失败超过阈值后自动升级为人工干预。
-
+杩炵画澶辫触瓒呰繃闃堝€煎悗鑷姩鍗囩骇涓轰汉宸ュ共棰勩€?
 ---
 
-## 📊 已安装 Skill 概览
+## 馃搳 宸插畨瑁?Skill 姒傝
 
-约 **120 个** 可用 Skill，按用途分类：
+绾?**120 涓?* 鍙敤 Skill锛屾寜鐢ㄩ€斿垎绫伙細
 
-| 类别 | 数量 | 示例 |
+| 绫诲埆 | 鏁伴噺 | 绀轰緥 |
 |------|------|------|
-| 网页搜索 | 12+ | online-search, multi-search-engine, agent-reach |
-| 内容创作 | 8+ | content-factory, frontend-design, canvas-design |
-| 文档处理 | 6+ | pdf, pptx, docx, xlsx |
-| 金融数据 | 4+ | neodata-financial-search, stock-analysis |
-| 新闻资讯 | 5+ | news-summary, tech-news-digest, hackernews |
-| 生产力 | 12+ | goal-tracker, habit-tracker, todoist-task-manager |
-| AI/ML 工具 | 9+ | nano-banana-pro, openai-whisper, oracle |
-| 平台集成 | 6+ | feishu-doc, tencent-meeting-mcp, imap-smtp-email |
+| 缃戦〉鎼滅储 | 12+ | online-search, multi-search-engine, agent-reach |
+| 鍐呭鍒涗綔 | 8+ | content-factory, frontend-design, canvas-design |
+| 鏂囨。澶勭悊 | 6+ | pdf, pptx, docx, xlsx |
+| 閲戣瀺鏁版嵁 | 4+ | neodata-financial-search, stock-analysis |
+| 鏂伴椈璧勮 | 5+ | news-summary, tech-news-digest, hackernews |
+| 鐢熶骇鍔?| 12+ | goal-tracker, habit-tracker, todoist-task-manager |
+| AI/ML 宸ュ叿 | 9+ | nano-banana-pro, openai-whisper, oracle |
+| 骞冲彴闆嗘垚 | 6+ | feishu-doc, tencent-meeting-mcp, imap-smtp-email |
 
-完整清单见 [`MEMORY.md`](MEMORY.md)。
-
+瀹屾暣娓呭崟瑙?[`MEMORY.md`](MEMORY.md)銆?
 ---
 
-## 🔗 关联仓库
+## 馃敆 鍏宠仈浠撳簱
 
-| 仓库 | 说明 |
+| 浠撳簱 | 璇存槑 |
 |------|------|
-| [openclaw-workspace](https://github.com/ouyanghui02-maker/openclaw-workspace) | ⭐ 本仓库 — 核心配置文件 |
-| [firecrawl-skill](https://github.com/ouyanghui02-maker/firecrawl-skill) | Firecrawl OpenClaw Skill — 智能网页抓取 |
-| [claw-code](https://github.com/ouyanghui02-maker/claw-code) | Fork 参考资料 — Claw Code Rust 重写版 |
-| [free-code](https://github.com/ouyanghui02-maker/free-code) | Fork 参考资料 — Free Claude Code |
+| [openclaw-workspace](https://github.com/ouyanghui02-maker/openclaw-workspace) | 猸?鏈粨搴?鈥?鏍稿績閰嶇疆鏂囦欢 |
+| [firecrawl-skill](https://github.com/ouyanghui02-maker/firecrawl-skill) | Firecrawl OpenClaw Skill 鈥?鏅鸿兘缃戦〉鎶撳彇 |
+| [claw-code](https://github.com/ouyanghui02-maker/claw-code) | Fork 鍙傝€冭祫鏂?鈥?Claw Code Rust 閲嶅啓鐗?|
+| [free-code](https://github.com/ouyanghui02-maker/free-code) | Fork 鍙傝€冭祫鏂?鈥?Free Claude Code |
 
 ---
 
-## 📝 写作规范
+## 馃摑 鍐欎綔瑙勮寖
 
-引用外部项目/文档时，必须标注：
-- **来源**：项目名、URL
-- **说明**：参考了什么内容、哪个章节
+寮曠敤澶栭儴椤圭洰/鏂囨。鏃讹紝蹇呴』鏍囨敞锛?- **鏉ユ簮**锛氶」鐩悕銆乁RL
+- **璇存槑**锛氬弬鑰冧簡浠€涔堝唴瀹广€佸摢涓珷鑺?
+绀轰緥锛?> 鍊熼壌 [ultraworkers/claw-code](https://github.com/ultraworkers/claw-code) 鐨?`recovery_recipes.rs` 璁捐浜?R1~R5 鏁呴殰鑷剤閰嶆柟銆?
+---
 
-示例：
-> 借鉴 [ultraworkers/claw-code](https://github.com/ultraworkers/claw-code) 的 `recovery_recipes.rs` 设计了 R1~R5 故障自愈配方。
+## 馃彿锔?Topics
+
+`openclaw` 路 `qclaw` 路 `ai-workspace` 路 `ai-agent` 路 `openclaw-workspace`
 
 ---
 
-## 🏷️ Topics
+*Built with [OpenClaw](https://github.com/openclaw) by 闆ㄥ噷闊?鉂わ笍*
 
-`openclaw` · `qclaw` · `ai-workspace` · `ai-agent` · `openclaw-workspace`
-
----
-
-*Built with [OpenClaw](https://github.com/openclaw) by 雨凌音 ❤️*
